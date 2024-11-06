@@ -14,3 +14,4 @@ __pycache__/
 
 # Archivos de configuración personal
 .env
+python manage.py createsuperuser
