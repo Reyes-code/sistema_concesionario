@@ -4,12 +4,54 @@
     <meta charset="UTF-8">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'usuarios/css/styles.css' %}">
-
     <title>Página de Inicio</title>
 </head>
 <body>
-    <h1>Bienvenido, {{ user.username }}!</h1>
-    <p>Has iniciado sesión con éxito.</p>
-    <a href="{% url 'logout' %}">Cerrar sesión</a>
+    <header>
+        <h1>&nbsp; RPM Motors</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>&nbsp;&nbsp;
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <h1>Bienvenido, {{ user.username }}!</h1>
+            <p>Has iniciado sesión con éxito.</p>
+            <h2>Ventas</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Carro</th>
+                            <th>Moto</th>
+                            <th>Empleado</th>
+                            <th>Sucursal</th>
+                            <th>Fecha</th>
+                            <th>Cantidad Ventas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for venta in ventas %}
+                        <tr>
+                            <td>{{ venta.venta_id }}</td>
+                            <td>{{ venta.carro }}</td>
+                            <td>{{ venta.moto }}</td>
+                            <td>{{ venta.empleado }}</td>
+                            <td>{{ venta.sucursal }}</td>
+                            <td>{{ venta.fecha }}</td>
+                            <td>{{ venta.cantidad_ventas }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 RPM Motors. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>

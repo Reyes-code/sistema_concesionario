@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'sistema_concesionario.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'users_mysql',  # Nombre de tu base de datos
+        'USER': 'root',      # Usuario de MySQL
+        'PASSWORD': 'admin123',  # Contraseña del usuario
+        'HOST': 'localhost',      # Host de la base de datos (normalmente localhost)
+        'PORT': '3306',            # Puerto de MySQL (normalmente 3306)
     }
 }
 

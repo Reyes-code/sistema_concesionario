@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth import authenticate
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import Venta
+
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -16,3 +21,9 @@ def login_view(request):
 
 def home_view(request):
     return render(request, 'usuarios/home.html')  # Asegúrate de crear este template
+
+@login_required
+def home_view(request):
+    ventas = Venta.objects.all()  # Obtener todas las ventas
+    return render(request, 'usuarios/home.html', {'ventas': ventas})
+
