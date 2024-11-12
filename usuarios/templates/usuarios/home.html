@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
+    {% load custom_tags %}
     <link rel="stylesheet" type="text/css" href="{% static 'usuarios/css/styles.css' %}">
     <title>Página de Inicio</title>
 </head>
@@ -31,6 +32,9 @@
                             <th>Sucursal</th>
                             <th>Fecha</th>
                             <th>Cantidad Ventas</th>
+                            {% if user|has_group:"Empleado" %}
+                            <th>Acciones</th>
+                            {% endif %}
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +47,9 @@
                             <td>{{ venta.sucursal }}</td>
                             <td>{{ venta.fecha }}</td>
                             <td>{{ venta.cantidad_ventas }}</td>
+                            {% if user|has_group:"Empleado" %}
+                            <td><a href="{% url 'editar_venta' venta.venta_id %}">Editar</a></td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
