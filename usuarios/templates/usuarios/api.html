@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'usuarios/css/styles.css' %}">
+    <title>Consulta de Autos</title>
+</head>
+<body>
+    <header>
+        <h1>&nbsp; RPM Motors</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>&nbsp;&nbsp;
+                <li><a href="{% url 'home' %}">Inicio</a></li>&nbsp;&nbsp;
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <h1>Consulta de Autos</h1>
+
+            <form method="POST" class="search_car">
+                {% csrf_token %}
+                <label for="model">Ingrese el modelo:</label>
+                <input type="text" id="model" name="model" required>
+                <button type="submit">Consultar</button>
+            </form>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if cars %}
+                            {% for car in cars %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ car.make }}</td>
+                                <td>{{ car.model }}</td>
+                                <td>{{ car.year }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="2">No hay resultados para mostrar</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 RPM Motors. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

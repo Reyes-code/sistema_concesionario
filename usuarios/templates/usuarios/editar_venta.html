@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'usuarios/css/styles.css' %}">
     <title>Editar Venta</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Editar Venta</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar cambios</button>
-    </form>
+    <header>
+        <h1>&nbsp; RPM Motors</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>&nbsp;&nbsp;
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <h1>Editar Venta</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 RPM Motors. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>

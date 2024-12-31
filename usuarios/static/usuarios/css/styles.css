@@ -56,14 +56,15 @@ nav ul li a:hover {
 
 /* Contenedor de login y principal */
 .container {
-    width: 90%;
+    align-items: center;
+    width: 100%;
     max-width: 1200px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 100px; /* Espacio para el header fijo */
-    margin-bottom: 60px; /* Espacio inferior para separar del pie de página */
+    margin-top: 70px; /* Espacio para el header fijo */
+    margin-bottom: 20px; /* Espacio inferior para separar del pie de página */
 }
 
 .login-container {
@@ -101,6 +102,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
+
 /* Botón de inicio de sesión */
 button[type="submit"] {
     width: 100%;
@@ -129,7 +131,8 @@ footer {
     background-color: #35424a;
     color: #ffffff;
     text-align: center;
-    padding: 10px 0;
+    align-self:flex-start;
+    padding: 0px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -200,4 +203,71 @@ table tr:hover {
     footer {
         height: 30px;
     }
+}
+
+/* Estilo para el formulario de búsqueda */
+/* Estilo específico para el formulario de búsqueda */
+form.search_car {
+    display: flex;
+    flex-direction: column; /* Apilar los elementos de manera vertical */
+    align-items: left; /* elementos a la izquierda*/
+    gap: 8px; /* Espaciado entre los elementos */
+    margin-top: 20px; /* Espacio entre el formulario de login y el de búsqueda */
+    max-width: 600px; /* Limitar el ancho máximo */
+    width: 100%; /* Ocupa el 100% del contenedor */
+    margin-bottom: 50px;
+}
+
+/* Estilo para el input de búsqueda */
+form.search_car input[type="text"] {
+    width: auto; /* Asegura que el input ocupe todo el ancho disponible */
+    max-width: 400px; /* Limita el ancho máximo */
+    padding: 12px;
+    border: 2px solid #35424a; /* Borde oscuro */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Estilo de hover en el input */
+form.search_car input[type="text"]:hover {
+    background-color: #fff;
+    border-color: #e8491d; /* Cambiar borde a un color más brillante */
+}
+
+/* Estilo cuando el input está enfocado */
+form.search_car input[type="text"]:focus {
+    outline: none;
+    border-color: #35424a;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(53, 66, 74, 0.5);
+}
+
+/* Estilo para el botón de envío */
+form.search_car button[type="submit"] {
+    width: auto;
+    max-width: 200px; /* Ajusta el ancho al contenido */
+    padding: 8px 0.2px; /* Reduce el tamaño del botón */
+    background-color: #35424a; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Ajuste de tamaño de fuente */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px; /* Espaciado superior */
+}
+
+/* Efecto hover sobre el botón */
+form.search_car button[type="submit"]:hover {
+    background-color: #e8491d; /* Fondo naranja en hover */
+    transform: scale(1.05); /* Efecto de crecimiento */
+}
+
+/* Estilo de enfoque en el botón */
+form.search_car button[type="submit"]:focus {
+    outline: none; /* Quita el borde predeterminado */
+    box-shadow: 0 0 5px rgba(232, 73, 29, 0.5); /* Sombra */
 }

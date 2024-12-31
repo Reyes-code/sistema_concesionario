@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sistema_concesionario.wsgi.application'
 
+ALLOWED_HOSTS = ['192.168.142.17', '127.0.0.1', 'localhost']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -77,11 +78,11 @@ WSGI_APPLICATION = 'sistema_concesionario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'users_mysql',  # Nombre de tu base de datos
-        'USER': 'root',      # Usuario de MySQL
-        'PASSWORD': 'admin123',  # Contraseña del usuario
-        'HOST': 'localhost',      # Host de la base de datos (normalmente localhost)
-        'PORT': '3306',            # Puerto de MySQL (normalmente 3306)
+        'NAME': 'users_mysql', 
+        'USER': 'root',      
+        'PASSWORD': 'admin123',  
+        'HOST': 'localhost',      
+        'PORT': '3306',           
     }
 }
 
